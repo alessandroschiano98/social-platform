@@ -13,7 +13,11 @@ AND `medias`.`type` = "video";
 
 
 2. Seleziona tutti i post senza Like (13)
-
+SELECT DISTINCT `posts`.`id` AS `posts_id`, `posts`.`title` AS `posts_title`, `likes`.`post_id` AS `numbers_of_likes_of_posts`
+FROM `posts`
+LEFT JOIN `likes`
+ON `posts`.`id` = `likes`.`post_id`
+WHERE `likes`.`post_id` IS NULL;
 
 3. Conta il numero di like per ogni post (165) nel caso di query con SELECT + JOIN oppure 175 nel caso di query con sola SELECT
 
