@@ -1,7 +1,11 @@
 1. Seleziona gli utenti che hanno postato almeno un video
+
+SELECT DISTINCT `users`.`id`, `users`.`username`, `medias`.`type` AS `medias_type`,`medias`.`created_at`
 FROM `users`
 INNER JOIN `medias`
 ON `users`.`id` = `medias`.`user_id`
+INNER JOIN `posts`
+ON `users`.`id` = `posts`.`user_id`
 WHERE `medias`.`type`>= 1
 AND `medias`.`type` = "video";
 
