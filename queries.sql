@@ -62,12 +62,12 @@ ORDER BY `numero_media_caricati` ASC;
 
 5. Ordina gli utenti per totale di likes ricevuti nei loro posts (25)
 
-SELECT DISTINCT `users`.`id`, `users`.`username`, COUNT(`likes`.`post_id`) AS `totale_like`
+SELECT `users`.`id`, `users`.`username`, COUNT(`likes`.`post_id`) AS `totale_like`
 FROM `users`
 INNER JOIN `posts`
 ON `users`.`id` = `posts`.`user_id`
 INNER JOIN `likes`
 ON `posts`.`id` = `likes`.`post_id`
 GROUP BY `users`.`id`
-ORDER BY `users`.`id`, `totale_like` DESC ;
+ORDER BY  `totale_like` ASC ;
 
