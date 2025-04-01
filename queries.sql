@@ -22,13 +22,13 @@ BONUS: i post possono avere anche i Commenti.
 
 1. Seleziona gli utenti che hanno postato almeno un video
 
-SELECT DISTINCT `users`.`id`, `users`.`username`,`medias`.`type` AS `medias_type`
+SELECT `users`.`id`,`users`.`username`, `medias`.`user_id` AS `media_caricati_video`
 FROM `users`
 INNER JOIN `medias`
-ON `users`.`id` = `medias`.`user_id`
+ON `users`.`id` = `medias`.`id`
 INNER JOIN `media_post`
 ON `medias`.`id` = `media_post`.`media_id`
-WHERE `medias`.`type` >= 1
+WHERE `users`.`id` 
 AND `medias`.`type` = "video";
 
 
