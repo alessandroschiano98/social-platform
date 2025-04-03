@@ -46,7 +46,7 @@ SELECT `posts`.`id` AS `post_id`,`posts`.`title` AS `post_title`, COUNT(`likes`.
 FROM `posts`
 LEFT JOIN `likes`
 ON `posts`.`id` = `likes`.`post_id`
-GROUP BY `posts`.`id`,`post_title`,`likes`.`post_id`
+GROUP BY `post_title`,`posts`.`id`
 ORDER BY `numbers_of_like_post`,`posts`.`id` ASC;
 
 4. Ordina gli utenti per il numero di media caricati (25)
