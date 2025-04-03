@@ -42,12 +42,12 @@ WHERE `likes`.`post_id` IS NULL;
 
 3. Conta il numero di like per ogni post (165) nel caso di query con SELECT + JOIN oppure (175) nel caso di query con sola SELECT
 
-SELECT `posts`.`id`,`posts`.`title` AS `post_title`, COUNT(`likes`.`post_id`) AS `numbers_of_like_post`
+SELECT `posts`.`id` AS `post_id`,`posts`.`title` AS `post_title`, COUNT(`likes`.`post_id`) AS `numbers_of_like_post`
 FROM `posts`
 LEFT JOIN `likes`
 ON `posts`.`id` = `likes`.`post_id`
 GROUP BY `posts`.`id`,`post_title`,`likes`.`post_id`
-ORDER BY `numbers_of_like_post` AND `posts`.`id` ASC;
+ORDER BY `numbers_of_like_post`,`posts`.`id` ASC;
 
 4. Ordina gli utenti per il numero di media caricati (25)
 
